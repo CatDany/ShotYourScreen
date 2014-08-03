@@ -1,6 +1,11 @@
 package shotyourscreen.client;
 
+import java.awt.Toolkit;
+import java.awt.datatransfer.StringSelection;
+
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.settings.KeyBinding;
+import net.minecraft.util.ChatComponentText;
 
 import org.lwjgl.input.Keyboard;
 
@@ -18,11 +23,13 @@ import cpw.mods.fml.common.network.simpleimpl.IMessage;
 
 public class KeyHandler
 {
-	public final KeyBinding keyShot = new KeyBinding("Take a Screenshot", Keyboard.KEY_NUMPAD0, Refs.MOD_NAME);
+	public final KeyBinding keyShot = new KeyBinding("Share a Screenshot", Keyboard.KEY_NUMPAD0, Refs.MOD_NAME);
+	public final KeyBinding keyCopy = new KeyBinding("Take Screenshot and Copy Link", Keyboard.KEY_NUMPAD1, Refs.MOD_NAME);
 	
 	public void initKeybindings()
 	{
 		ClientRegistry.registerKeyBinding(keyShot);
+		ClientRegistry.registerKeyBinding(keyCopy);
 		FMLCommonHandler.instance().bus().register(this);
 		ShotYourScreen.logger.info("Key Bindings initialized.");
 	}
@@ -37,6 +44,12 @@ public class KeyHandler
 				String imgurId = ImgurUploader.takeScreenshotAndUpload();
 				IMessage msg = new MessageImgur(imgurId);
 				PacketHandler.instance().net().sendToServer(msg);
+			}
+			if (keyCopy.isPressed())
+			{
+				String imgurId = ImgurUploader.takeScreenshotAndUpload();
+				Toolkit.getDefaultToolkit().getSystemClipboard().setContents(new StringSelection(ImgurUploader.getImgurUrl(imgurId)), null);
+				Minecraft.getMinecraft().thePlayer.addChatMessage(new ChatComponentText("Screenshot uploaded and link copied to your clipboard."));
 			}
 		}
 	}
