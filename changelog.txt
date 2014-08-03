@@ -4,11 +4,11 @@
 3. Minor: important changes to a mod
 4. Build: Whenever I end working on a mod (e.g. every day). Also independent from the other ones
 
-b1.0-3:
+b1.0-3 (2014/08/03 14:52 GMT+0)
 - Added a keybinding (default: NUMPAD1) to upload a screenshot and copy a link into the clipboard
 
-b1.0-2:
+b1.0-2 (2014/08/03 13:55 GMT+0)
 - Initial beta-release
 
-a1.0-1:
+d1.0-1 (2014/08/03 6:37 GMT+0)
 - It's blank
