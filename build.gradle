@@ -27,7 +27,9 @@ minecraft {
 }
 
 dependencies {
-    compile 'src/libs'
+	println("  Adding dependencies..")
+    compile files("dep/DanyLibs.jar")
+	println("  Dependencies added!");
 }
 
 processResources
