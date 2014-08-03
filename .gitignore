@@ -11,4 +11,4 @@ gradle
 build.cmd
 gradlew
 gradlew.bat
-src/libs
+src/main/java/danylibs
