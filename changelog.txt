@@ -1,0 +1,11 @@
+@ What does this version number mean (major.minor.revision.build)?
+1. Major: Huge change to a mod
+2. Minor: Major Minecraft update
+3. Revision: Important changes to a mod
+4. Build: Whenever I end working on a mod (e.g. every day). Also independent
+
+build 2 (1.1.0.1):
+- Initial beta-release
+
+build 1 (0.1.0.1):
+- It's blank
