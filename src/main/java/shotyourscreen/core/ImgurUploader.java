@@ -17,7 +17,6 @@ import shotyourscreen.ShotYourScreen;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import com.sun.istack.internal.Nullable;
 
 public class ImgurUploader
 {
@@ -93,7 +92,6 @@ public class ImgurUploader
 		}
 	}
 	
-	@Nullable
 	private static String handleResponse(InputStream in)
 	{
 		StringBuilder sb = new StringBuilder();
