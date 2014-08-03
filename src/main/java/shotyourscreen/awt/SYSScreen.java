@@ -20,6 +20,7 @@ public class SYSScreen extends JPanel implements Runnable
 	{
 		this.frame = frame;
 		
+		thread.setDaemon(true);
 		thread.start();
 	}
 	

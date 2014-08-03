@@ -4,6 +4,9 @@
 3. Minor: important changes to a mod
 4. Build: Whenever I end working on a mod (e.g. every day). Also independent from the other ones
 
+b1.0-4 (2014/08/03 15:05 GMT+0)
+- Screenshot windows are now daemon threads. That technically should fix a bug where your JVM process doesn't close, but I didn't see this issue before.
+
 b1.0-3 (2014/08/03 14:52 GMT+0)
 - Added a keybinding (default: NUMPAD1) to upload a screenshot and copy a link into the clipboard
 
