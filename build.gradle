@@ -24,6 +24,8 @@ archivesBaseName = "ShotYourScreen"
 minecraft {
     version = "1.7.2-10.12.2.1147"
     assetDir = "eclipse/assets"
+	
+	replace '%VERSION%', project.version;
 }
 
 dependencies {
