@@ -1,0 +1,14 @@
+.git
+.gradle
+.settings
+bin
+build
+dep
+eclipse
+gradle
+.classpath
+.project
+build.cmd
+gradlew
+gradlew.bat
+src/libs

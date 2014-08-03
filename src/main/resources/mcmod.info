@@ -1,0 +1,16 @@
+[
+{
+  "modid": "ShotYourScreen",
+  "name": "ShotYourScreen",
+  "description": "Share screenshots with friends immediately!",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["CatDany"],
+  "credits": "Thanks to all my patrons and Imgur for hosting these screenshots ;)",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
