@@ -1,9 +1,7 @@
 package shotyourscreen.network;
 
 import shotyourscreen.Refs;
-import shotyourscreen.network.packet.MessageImgur;
-import shotyourscreen.network.packet.MessageImgurClient;
-import shotyourscreen.network.packet.PacketBrowseImg;
+import shotyourscreen.network.packet.PacketServerCheck;
 import shotyourscreen.network.packet.PacketShareScreenshot;
 import cpw.mods.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import danylibs.NetworkHelper;
@@ -17,8 +15,8 @@ public class PacketHandler
 	{
 		helper = NetworkHelper.addNetHandler(Refs.MOD_ID.toUpperCase());
 		
-		helper.registerMessage(0, PacketBrowseImg.class, MessageImgurClient.class);
-		helper.registerMessage(1, PacketShareScreenshot.class, MessageImgur.class);
+		helper.registerMessage(0, PacketShareScreenshot.class, PacketShareScreenshot.MessageShareScreenshot.class);
+		helper.registerMessage(1, PacketServerCheck.class, PacketServerCheck.MessageServerCheck.class);
 	}
 	
 	public SimpleNetworkWrapper net()

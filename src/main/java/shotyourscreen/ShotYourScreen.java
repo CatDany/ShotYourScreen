@@ -3,7 +3,9 @@ package shotyourscreen;
 import org.apache.logging.log4j.Logger;
 
 import shotyourscreen.client.KeyHandler;
+import shotyourscreen.command.CommandBrowseImgServer;
 import shotyourscreen.event.EventChat;
+import shotyourscreen.event.EventServer;
 import shotyourscreen.network.PacketHandler;
 import shotyourscreen.proxy.IProxy;
 import cpw.mods.fml.common.Mod;
@@ -47,6 +49,7 @@ public class ShotYourScreen implements IMod
 	{
 		PacketHandler.instance().init();
 		EventBusHelper.checkBusAndRegister(new EventChat());
+		EventBusHelper.checkBusAndRegister(new EventServer());
 		proxy.init(e);
 	}
 	
@@ -59,5 +62,8 @@ public class ShotYourScreen implements IMod
 	
 	@Override
 	@Mod.EventHandler
-	public void serverStarting(FMLServerStartingEvent e) {}
+	public void serverStarting(FMLServerStartingEvent e)
+	{
+		e.registerServerCommand(new CommandBrowseImgServer());
+	}
 }

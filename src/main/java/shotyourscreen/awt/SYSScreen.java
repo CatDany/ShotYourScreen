@@ -28,7 +28,7 @@ public class SYSScreen extends JPanel implements Runnable
 	protected void paintComponent(Graphics g)
 	{
 		g.clearRect(0, 0, getWidth(), getHeight());
-		g.drawImage(frame.image, 0, 10, null);
+		g.drawImage(frame.image, 0, 0, null);
 	}
 
 	@Override

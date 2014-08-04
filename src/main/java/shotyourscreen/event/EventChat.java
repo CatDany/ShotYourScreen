@@ -1,33 +1,33 @@
 package shotyourscreen.event;
 
-import net.minecraftforge.event.ServerChatEvent;
-import shotyourscreen.network.PacketHandler;
-import shotyourscreen.network.packet.MessageImgur;
-import shotyourscreen.network.packet.MessageImgurClient;
+import net.minecraft.event.ClickEvent;
+import net.minecraft.event.HoverEvent;
+import net.minecraft.event.HoverEvent.Action;
+import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.ChatStyle;
+import net.minecraft.util.EnumChatFormatting;
+import net.minecraftforge.client.event.ClientChatReceivedEvent;
+import shotyourscreen.ShotYourScreen;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
-import cpw.mods.fml.common.network.simpleimpl.IMessage;
-import danylibs.Paragraph;
-import danylibs.PlayerUtils;
 
 public class EventChat
 {
-	public static final String COMMAND = "$BROWSEIMG";
-	
 	@SubscribeEvent
-	public void chat(ServerChatEvent e)
+	public void clientChat(ClientChatReceivedEvent e)
 	{
-		if (e.message.startsWith(COMMAND))
+		if (e.message.getUnformattedText().contains("http://i.imgur.com/"))
 		{
-			e.setCanceled(true);
+			int i = e.message.getUnformattedText().lastIndexOf("/") + 1;
+			int j = e.message.getUnformattedText().lastIndexOf(".");
 			try
 			{
-				String imgurId = e.message.substring(COMMAND.length() + 1);
-				IMessage msg = new MessageImgurClient(imgurId);
-				PacketHandler.instance().net().sendTo(msg, e.player);
+				String imgurId = e.message.getUnformattedText().substring(i, j);
+				e.message.appendSibling(new ChatComponentText(" [")).appendSibling(new ChatComponentText("Click to see").setChatStyle(new ChatStyle().setColor(EnumChatFormatting.GREEN).setChatHoverEvent(new HoverEvent(Action.SHOW_TEXT, new ChatComponentText("Click to see an image"))).setChatClickEvent(new ClickEvent(net.minecraft.event.ClickEvent.Action.RUN_COMMAND, String.format("/browseimg %s", imgurId))))).appendText("]");
 			}
 			catch (Throwable t)
 			{
-				PlayerUtils.print(e.player, Paragraph.rose + "Command is invalid.");
+				ShotYourScreen.logger.warn("Unable to parse imgur link in chat!");
+				ShotYourScreen.logger.catching(t);
 			}
 		}
 	}

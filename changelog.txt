@@ -4,7 +4,11 @@
 3. Minor: important changes to a mod
 4. Build: Whenever I end working on a mod (e.g. every day). Also independent from the other ones
 
-b1.0-5 (2014/08/03 6:21 GMT+0)
+b1.0-6 (2014/08/04 10:00 GMT+0)
+- This mod can now work client-only by posting link into chat. Other players which use this mod will be able to click on the link and see the screenshot as always.
+- Fixed: screenshot windows were showing weirdly because of the wrong size
+
+b1.0-5 (2014/08/04 6:21 GMT+0)
 - Downloaded screenshots are now saved in "downloaded-screenshots" folder instead of default "screenshots"
 
 b1.0-4 (2014/08/03 15:05 GMT+0)

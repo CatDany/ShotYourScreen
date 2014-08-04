@@ -43,20 +43,20 @@ public class SYSFrame extends JFrame
 	
 	private int getImgWidth()
 	{
-		int width = image.getWidth();
+		int width = image.getWidth() + 5;
 		if (width > Minecraft.getMinecraft().displayWidth)
 		{
-			width = Minecraft.getMinecraft().displayWidth;
+			width = Minecraft.getMinecraft().displayWidth + 5;
 		}
 		return width;
 	}
 	
 	private int getImgHeight()
 	{
-		int height = image.getHeight() + 10;
+		int height = image.getHeight() + 25;
 		if (height > Minecraft.getMinecraft().displayHeight)
 		{
-			height = Minecraft.getMinecraft().displayHeight + 10;
+			height = Minecraft.getMinecraft().displayHeight + 25;
 		}
 		return height;
 	}

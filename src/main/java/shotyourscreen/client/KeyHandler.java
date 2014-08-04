@@ -13,7 +13,7 @@ import shotyourscreen.Refs;
 import shotyourscreen.ShotYourScreen;
 import shotyourscreen.core.ImgurUploader;
 import shotyourscreen.network.PacketHandler;
-import shotyourscreen.network.packet.MessageImgur;
+import shotyourscreen.network.packet.PacketShareScreenshot;
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
@@ -42,8 +42,15 @@ public class KeyHandler
 			if (keyShot.isPressed())
 			{
 				String imgurId = ImgurUploader.takeScreenshotAndUpload();
-				IMessage msg = new MessageImgur(imgurId);
-				PacketHandler.instance().net().sendToServer(msg);
+				if (ServerSupport.SERVER_SUPPORT)
+				{
+					IMessage msg = new PacketShareScreenshot.MessageShareScreenshot(imgurId);
+					PacketHandler.instance().net().sendToServer(msg);
+				}
+				else
+				{
+					Minecraft.getMinecraft().thePlayer.sendChatMessage(String.format("http://i.imgur.com/%s.png", imgurId));
+				}
 			}
 			if (keyCopy.isPressed())
 			{
