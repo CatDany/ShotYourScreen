@@ -13,7 +13,15 @@ import cpw.mods.fml.relauncher.Side;
 public class ClientProxy implements IProxy
 {
 	@Override
-	public void preInit(FMLPreInitializationEvent e) {}
+	public void preInit(FMLPreInitializationEvent e)
+	{
+		File downloadedScreenshotsFolder = new File("downloaded-screenshots");
+		if (!downloadedScreenshotsFolder.exists())
+		{
+			downloadedScreenshotsFolder.mkdir();
+			ShotYourScreen.logger.info("Created an empty folder for downloaded screenshots.");
+		}
+	}
 
 	@Override
 	public void init(FMLInitializationEvent e)

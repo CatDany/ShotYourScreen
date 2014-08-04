@@ -16,7 +16,7 @@ public class PacketBrowseImg implements IMessageHandler<MessageImgurClient, IMes
 	{
 		if (ctx.side.isClient())
 		{
-			File image = new File(String.format("screenshots\\mcsys_imgur_%s.png", message.imgurId));
+			File image = new File(String.format("downloaded-screenshots\\imgur_%s.png", message.imgurId));
 			
 			if (!image.exists())
 			{

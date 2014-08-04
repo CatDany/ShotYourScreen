@@ -4,6 +4,9 @@
 3. Minor: important changes to a mod
 4. Build: Whenever I end working on a mod (e.g. every day). Also independent from the other ones
 
+b1.0-5 (2014/08/03 6:21 GMT+0)
+- Downloaded screenshots are now saved in "downloaded-screenshots" folder instead of default "screenshots"
+
 b1.0-4 (2014/08/03 15:05 GMT+0)
 - Screenshot windows are now daemon threads. That technically should fix a bug where your JVM process doesn't close, but I didn't see this issue before.
 
